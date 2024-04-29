@@ -11,9 +11,8 @@ namespace Scenes.Player
     {
         private Vector3 position;
         private Camera _camera;
-        private float speed = 10;
+        private float speed = 20;
 
-        [SerializeField] private Bullet bullet; 
         
         private void Awake()
         {
@@ -21,10 +20,7 @@ namespace Scenes.Player
             position = new Vector3(0.0f, 0.0f, 0.0f);
         }
 
-        private void Start()
-        {
-            StartCoroutine(Shoot());
-        }
+
 
         private void Update()
         {
@@ -36,13 +32,6 @@ namespace Scenes.Player
             }
         }
         
-        private IEnumerator Shoot()
-        {
-            while (true)
-            {
-                Instantiate(bullet, transform.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.4f);
-            }
-        }
+        
     }
 }
