@@ -2,27 +2,17 @@ using UnityEngine;
 
 namespace Scenes.Player
 {
-    public class PlayerData : MonoBehaviour
+    public class PlayerData
     {
-        private int _killCount;
+        public int KillCount { get; set; } = 0;
 
-        public PlayerData()
+        public double ShootRate { get; set; } = 0.1;
+        public double Damage { get; set; } = 1;
+        public int Hp { get; set; } = 1;
+        protected void IncrementKillCount()
         {
-            _killCount = 0;
+            KillCount++;
         }
         
-        public void incrementKillCount()
-        {
-            _killCount++;
-        }
-        public void descrementKillCount()
-        {
-            _killCount--;
-        }
-
-        public int getKillCount()
-        {
-            return _killCount;
-        }
     }
 }

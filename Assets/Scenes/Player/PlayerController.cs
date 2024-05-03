@@ -13,14 +13,20 @@ namespace Scenes.Player
         private Camera _camera;
         private float speed = 20;
 
-        
+        private PlayerData _data;
+        private BulletManager.BulletManager _bulletManager; 
         private void Awake()
         {
+            _bulletManager = gameObject.GetComponent<BulletManager.BulletManager>();
+            _data = new PlayerData();
             _camera = Camera.main;
             position = new Vector3(0.0f, 0.0f, 0.0f);
         }
 
-
+        private void Start()
+        {
+            _bulletManager.SetShootRate(_data.ShootRate);
+        }
 
         private void Update()
         {

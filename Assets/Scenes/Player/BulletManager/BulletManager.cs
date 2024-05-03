@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Scenes.bullet;
 using UnityEngine;
 
@@ -7,11 +6,17 @@ namespace Scenes.Player.BulletManager
 {
     public class BulletManager : MonoBehaviour
     {
-        [SerializeField] private Bullet bullet;
-        private Queue<Bullet> _bullets;
+        [SerializeField] private Bullet bulletPrefab;
+        private ObjectPool<Bullet> _bulletPool;
+        private float _shootRate;
+
+        private void Awake()
+        {
+            _bulletPool = new ObjectPool<Bullet>(bulletPrefab);
+        }
+
         private void Start()
         {
-            _bullets = new Queue<Bullet>();
             StartCoroutine(Shoot());
         }
         private IEnumerator Shoot()
@@ -19,30 +24,32 @@ namespace Scenes.Player.BulletManager
             while (true)
             {
                 StartCoroutine(Release(Get()));
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(_shootRate);
             }
         }
 
         private Bullet Get()
         {
-            return _bullets.Count > 0 ? _bullets.Dequeue() : Create();
-        }
-
-        private Bullet Create()
-        {
-            return Instantiate(bullet, transform.position, Quaternion.identity);
+            Bullet bullet = _bulletPool.Get();
+            bullet.transform.position = transform.position;
+            return bullet;
         }
 
         private IEnumerator Release(Bullet bullet)
         {
-            yield return new WaitForSeconds(2.4f);
-            Reset(bullet);
-            _bullets.Enqueue(bullet);
+            yield return new WaitForSeconds(2);
+            ResetBulletPosition(bullet);
+            _bulletPool.Release(bullet);
         }
 
-        private void Reset(Bullet bullet)
+        private void ResetBulletPosition(Bullet bullet)
         {
             bullet.transform.position = transform.position;
+        }
+
+        public void SetShootRate(double dataShootRate)
+        {
+            _shootRate = (float)dataShootRate;
         }
     }
 }
