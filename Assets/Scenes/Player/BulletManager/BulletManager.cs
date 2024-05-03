@@ -8,6 +8,7 @@ namespace Scenes.Player.BulletManager
     {
         [SerializeField] private Bullet bulletPrefab;
         private ObjectPool<Bullet> _bulletPool;
+        
         private float _shootRate;
 
         private void Awake()
