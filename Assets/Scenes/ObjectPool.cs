@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectPool<T> where T : Object
@@ -18,7 +19,7 @@ public class ObjectPool<T> where T : Object
     }
     public T Create()
     {
-        return (T)Object.Instantiate(_prefab);
+        return Object.Instantiate(_prefab).GetComponent<T>();
     }
 
     public void Release(T obj)

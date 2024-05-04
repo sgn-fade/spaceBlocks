@@ -1,19 +1,19 @@
 using System.Collections;
-using Scenes.bullet;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Scenes.Player.BulletManager
 {
     public class BulletManager : MonoBehaviour
     {
-        [SerializeField] private Bullet bulletPrefab;
-        private ObjectPool<Bullet> _bulletPool;
+        [FormerlySerializedAs("bulletPrefab")] [SerializeField] private BulletController bulletControllerPrefab;
+        private ObjectPool<BulletController> _bulletPool;
         
         private float _shootRate;
 
         private void Awake()
         {
-            _bulletPool = new ObjectPool<Bullet>(bulletPrefab);
+            _bulletPool = new ObjectPool<BulletController>(bulletControllerPrefab);
         }
 
         private void Start()
@@ -29,23 +29,24 @@ namespace Scenes.Player.BulletManager
             }
         }
 
-        private Bullet Get()
+        private BulletController Get()
         {
-            Bullet bullet = _bulletPool.Get();
-            bullet.transform.position = transform.position;
-            return bullet;
+            BulletController bulletController = _bulletPool.Get();
+            bulletController.gameObject.SetActive(true);
+            bulletController.transform.position = transform.position;
+            return bulletController;
         }
 
-        private IEnumerator Release(Bullet bullet)
+        private IEnumerator Release(BulletController bulletController)
         {
             yield return new WaitForSeconds(2);
-            ResetBulletPosition(bullet);
-            _bulletPool.Release(bullet);
+            ResetBulletPosition(bulletController);
+            _bulletPool.Release(bulletController);
         }
 
-        private void ResetBulletPosition(Bullet bullet)
+        private void ResetBulletPosition(BulletController bulletController)
         {
-            bullet.transform.position = transform.position;
+            bulletController.transform.position = transform.position;
         }
 
         public void SetShootRate(double dataShootRate)
