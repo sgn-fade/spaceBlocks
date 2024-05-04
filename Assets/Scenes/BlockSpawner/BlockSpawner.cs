@@ -1,12 +1,13 @@
 using System.Collections;
+using Scenes.BlockSpawner.Block;
 using UnityEngine;
 
 namespace Scenes.Block
 {
     public class BlockSpawner : MonoBehaviour
     {
-        [SerializeField] private BlockMain blockPrefab;
-        private ObjectPool<BlockMain> _blockPool;
+        [SerializeField] private BlockController blockPrefab;
+        private ObjectPool<BlockController> _blockPool;
         [SerializeField] private BoxCollider2D spawnArea;
         private float _spacing;
         private float _gridSizeX;
@@ -15,7 +16,7 @@ namespace Scenes.Block
         private const int GridSize = 7;
         private void Awake()
         {
-            _blockPool = new ObjectPool<BlockMain>(blockPrefab);
+            _blockPool = new ObjectPool<BlockController>(blockPrefab);
             _gridSizeX = spawnArea.size.x;
             _gridSizeY = spawnArea.offset.y;
             _spacing = _gridSizeX / GridSize;
@@ -41,18 +42,19 @@ namespace Scenes.Block
             {
                 for (float x = 0; x < GridSize; x++)
                 {
-                    BlockMain block = Get();
+                    BlockController block = Get();
+                    block.UpdateHp(Random.Range(1, 5));
                     block.transform.position = new Vector3(( _spacing - _gridSizeX) / 2 + x * _spacing, _gridSizeY + y * _spacing, 0);
                     block.gameObject.SetActive(true);
                     StartCoroutine(Release(block));
                 }
             }
         }
-        private BlockMain Get()
+        private BlockController Get()
         {
             return _blockPool.Get();
         }
-        private IEnumerator Release(BlockMain bullet)
+        private IEnumerator Release(BlockController bullet)
         {
             yield return new WaitForSeconds(7);
             _blockPool.Release(bullet);
