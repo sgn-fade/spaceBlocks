@@ -4,7 +4,7 @@ namespace Scenes.Block
 {
     public class BlockMain : MonoBehaviour
     {
-        private readonly Vector2 _velocity = new Vector2(0, -5);
+        private readonly Vector2 _velocity = new Vector2(0, -2);
         
         private void Update()
         {
