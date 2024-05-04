@@ -1,15 +1,13 @@
-using UnityEngine;
 
 namespace Scenes.Player
 {
-    public class PlayerData
+    public class PlayerModel : IPlayerModel
     {
-        public int KillCount { get; set; } = 0;
-
+        public int KillCount { get; set; }
         public double ShootRate { get; set; } = 0.5;
         public double Damage { get; set; } = 1;
-        public int Hp { get; set; } = 1;
-        protected void IncrementKillCount()
+        public int Hp { get; set; } = 10;
+        public void IncrementKillCount()
         {
             KillCount++;
         }

@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerView : MonoBehaviour
+namespace Scenes.Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerView : MonoBehaviour, IPlayerView
     {
-        
-    }
+        [SerializeField] private Text text;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void SetHpText(int value)
+        {
+            text.text = value.ToString();
+        }
     }
 }
