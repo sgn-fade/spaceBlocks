@@ -30,19 +30,19 @@ namespace Scenes.Block
         {
             while (true)
             {
-                SpawnBlockLine(2);
-                yield return new WaitForSeconds(2f);
+                SpawnBlockLine(1);
+                yield return new WaitForSeconds(4f);
             }
         }
 
         private void SpawnBlockLine(int number)
         {
-            for (float y = _gridSizeY; y <= _gridSizeY + _spacing * number; y += _spacing)
+            for (float y = 0; y < number; y++)
             {
-                for (float x = -_gridSizeX / 2 + _spacing / 2; x < _gridSizeX / 2; x += _spacing)
+                for (float x = 0; x < GridSize; x++)
                 {
                     BlockMain block = Get();
-                    block.transform.position = new Vector3(x, y, 0);
+                    block.transform.position = new Vector3(( _spacing - _gridSizeX) / 2 + x * _spacing, _gridSizeY + y * _spacing, 0);
                     block.gameObject.SetActive(true);
                     StartCoroutine(Release(block));
                 }
