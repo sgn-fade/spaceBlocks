@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Scenes.BlockSpawner.Block
 {
@@ -7,11 +9,17 @@ namespace Scenes.BlockSpawner.Block
         private readonly Vector2 _velocity = new Vector2(0, -2);
 
         private BlockModel _model;
+        private BlockView _view;
         private void Awake()
         {
+            _view = gameObject.GetComponentInChildren<BlockView>();
             _model = new BlockModel(1);
         }
 
+        private void Start()
+        {
+            UpdateHp(_model.Hp);
+        }
         private void Update()
         {
             Move();
@@ -19,7 +27,8 @@ namespace Scenes.BlockSpawner.Block
         
         public void TakeDamage(int value)
         {
-            _model.Hp -= value;
+            UpdateHp(_model.Hp -value);
+            _view.SetHpText(_model.Hp);
             if (_model.Hp <= 0)
             {
                 gameObject.SetActive(false);
@@ -34,6 +43,7 @@ namespace Scenes.BlockSpawner.Block
         public void UpdateHp(int value)
         {
             _model.Hp = value;
+            _view.SetHpText(_model.Hp);
         }
     }
 }
