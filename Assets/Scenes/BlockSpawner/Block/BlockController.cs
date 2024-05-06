@@ -6,6 +6,7 @@ namespace Scenes.BlockSpawner.Block
 {
     public class BlockController : MonoBehaviour, IBlockController
     {
+        public static Action<int> OnEnemyKilled;
         private readonly Vector2 _velocity = new Vector2(0, -2);
 
         private BlockModel _model;
@@ -29,10 +30,11 @@ namespace Scenes.BlockSpawner.Block
         {
             UpdateHp(_model.Hp -value);
             _view.SetHpText(_model.Hp);
-            if (_model.Hp <= 0)
-            {
-                gameObject.SetActive(false);
-            }
+
+            if (_model.Hp > 0) return;
+
+            OnEnemyKilled?.Invoke(_model.Cost);
+            gameObject.SetActive(false);
         }
 
         public void Move()
