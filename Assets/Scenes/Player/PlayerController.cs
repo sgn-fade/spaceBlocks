@@ -20,13 +20,13 @@ namespace Scenes.Player
             _bulletManager = gameObject.GetComponent<BulletManager.BulletManager>();
             _model = new PlayerModel();
             _camera = Camera.main;
+            SetShootRate(_model.ShootRate);
             _position = new Vector3(0.0f, 0.0f, 0.0f);
         }
 
         private void Start()
         {
             _view.SetHpText(_model.Hp);
-            SetShootRate(_model.ShootRate);
         }
 
         private void Update()

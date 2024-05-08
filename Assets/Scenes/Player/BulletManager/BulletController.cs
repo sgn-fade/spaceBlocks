@@ -20,7 +20,7 @@ namespace Scenes.Player.BulletManager
             if (other.TryGetComponent(out BlockController block))
             {
                 gameObject.SetActive(false);
-                Debug.Log(Time.time);
+                //Debug.Log(Time.time, gameObject);
                 block.TakeDamage(1);
             }
         }

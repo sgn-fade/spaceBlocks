@@ -31,6 +31,7 @@ namespace Scenes.Player.BulletManager
 
         private BulletController Get()
         {
+            Debug.Log(Time.time);
             BulletController bulletController = _bulletPool.Get();
             bulletController.gameObject.SetActive(true);
             bulletController.transform.position = transform.position;
@@ -40,14 +41,10 @@ namespace Scenes.Player.BulletManager
         private IEnumerator Release(BulletController bulletController)
         {
             yield return new WaitForSeconds(1);
-            ResetBulletPosition(bulletController);
+            bulletController.gameObject.SetActive(false);
             _bulletPool.Release(bulletController);
         }
 
-        private void ResetBulletPosition(BulletController bulletController)
-        {
-            bulletController.transform.position = transform.position;
-        }
 
         public void SetShootRate(double dataShootRate)
         {
