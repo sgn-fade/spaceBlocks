@@ -6,8 +6,8 @@ namespace Scenes.BlockSpawner.Block
 {
     public class BlockController : MonoBehaviour, IBlockController
     {
-        public static Action<int> OnEnemyKilled;
-        private readonly Vector2 _velocity = new Vector2(0, -2);
+        public static event Action<int> OnEnemyKilled;
+        private readonly Vector2 _velocity = new Vector2(0, -1);
 
         private BlockModel _model;
         private BlockView _view;

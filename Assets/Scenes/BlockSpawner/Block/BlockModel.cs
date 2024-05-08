@@ -8,7 +8,7 @@ namespace Scenes.BlockSpawner.Block
         public BlockModel(int hp)
         {
             Hp = hp;
-            Cost = hp * 2;
+            Cost = 1;
         }
         
     }

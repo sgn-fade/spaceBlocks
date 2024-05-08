@@ -39,7 +39,7 @@ namespace Scenes.Player.BulletManager
 
         private IEnumerator Release(BulletController bulletController)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             ResetBulletPosition(bulletController);
             _bulletPool.Release(bulletController);
         }

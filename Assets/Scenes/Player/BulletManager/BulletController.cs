@@ -9,8 +9,7 @@ namespace Scenes.Player.BulletManager
 {
     public class BulletController : MonoBehaviour
     {
-        private readonly Vector2 _velocity = new Vector2(0, 10);
-
+        private readonly Vector2 _velocity = new Vector2(0, 5);
         private void Update()
         {
             transform.Translate(_velocity * Time.deltaTime);
@@ -20,8 +19,9 @@ namespace Scenes.Player.BulletManager
         {
             if (other.TryGetComponent(out BlockController block))
             {
-                block.TakeDamage(1);
                 gameObject.SetActive(false);
+                Debug.Log(Time.time);
+                block.TakeDamage(1);
             }
         }
     }

@@ -26,16 +26,15 @@ namespace Scenes.CoinManager
 
         private void Awake()
         {
-            BlockController.OnEnemyKilled += OnEnemyKilled;
             _model = new CoinModel();
             _view = gameObject.GetComponentInChildren<CoinView>();
         }
 
         public void UpdateMoney(int value)
         {
-            _model.NumberOfCoins = value;
-            Debug.Log(_model.NumberOfCoins);
-            _view.UpdateMoney(value);
+            //Debug.Log(value);
+            _model.NumberOfCoins += value;
+            _view.UpdateMoney(_model.NumberOfCoins);
         }
     }
 }
