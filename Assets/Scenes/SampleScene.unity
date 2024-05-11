@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &89454937 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7596013984011700730, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
-  m_PrefabInstance: {fileID: 2131364207}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &234540587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -384,7 +373,7 @@ PrefabInstance:
     - target: {fileID: 2997032755556958488, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
       propertyPath: coinLabel
       value: 
-      objectReference: {fileID: 89454937}
+      objectReference: {fileID: 0}
     - target: {fileID: 3228011261892265861, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -428,6 +417,18 @@ PrefabInstance:
     - target: {fileID: 5816395567418807988, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
       propertyPath: m_Name
       value: CoinUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596013984011700730, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
+      propertyPath: m_Text
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422661480612723909, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422661480612723909, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
