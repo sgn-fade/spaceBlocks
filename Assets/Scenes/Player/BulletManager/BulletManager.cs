@@ -1,4 +1,5 @@
 using System.Collections;
+using Scenes.Player.BulletManager.bullet;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -6,7 +7,7 @@ namespace Scenes.Player.BulletManager
 {
     public class BulletManager : MonoBehaviour
     {
-        [FormerlySerializedAs("bulletPrefab")] [SerializeField] private BulletController bulletControllerPrefab;
+        [SerializeField] private BulletController bulletControllerPrefab;
         private ObjectPool<BulletController> _bulletPool;
         
         private float _shootRate;
@@ -31,7 +32,6 @@ namespace Scenes.Player.BulletManager
 
         private BulletController Get()
         {
-            Debug.Log(Time.time);
             BulletController bulletController = _bulletPool.Get();
             bulletController.gameObject.SetActive(true);
             bulletController.transform.position = transform.position;

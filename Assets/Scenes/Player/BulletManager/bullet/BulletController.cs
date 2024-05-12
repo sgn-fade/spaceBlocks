@@ -1,11 +1,7 @@
-using System;
-using System.Security.Cryptography;
-using Scenes.Block;
 using Scenes.BlockSpawner.Block;
-using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Scenes.Player.BulletManager
+namespace Scenes.Player.BulletManager.bullet
 {
     public class BulletController : MonoBehaviour
     {
@@ -20,7 +16,6 @@ namespace Scenes.Player.BulletManager
             if (other.TryGetComponent(out BlockController block))
             {
                 gameObject.SetActive(false);
-                //Debug.Log(Time.time, gameObject);
                 block.TakeDamage(1);
             }
         }
