@@ -6,9 +6,7 @@ namespace Scenes.Player
 {
     public class PlayerController : MonoBehaviour, IPlayerController
     {
-        private Vector3 _position;
         private Camera _camera;
-        private const float Speed = 20;
 
         private PlayerModel _model;
         private PlayerView _view;
@@ -21,7 +19,6 @@ namespace Scenes.Player
             _model = new PlayerModel();
             _camera = Camera.main;
             SetShootRate(_model.ShootRate);
-            _position = new Vector3(0.0f, 0.0f, 0.0f);
         }
 
         private void Start()
@@ -38,9 +35,11 @@ namespace Scenes.Player
         {
             if (Input.touchCount > 0)
             {
-                _position = _camera!.ScreenToWorldPoint(Input.GetTouch(0).position) - transform.position;
-                _position.z = 0;
-                transform.Translate(_position.normalized * (Time.deltaTime * Speed));
+                Vector3 targetPosition = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+                var transform1 = transform;
+                var position = transform1.position;
+                targetPosition.z = position.z;
+                transform1.up = (targetPosition - position).normalized;
             }
         }
 
