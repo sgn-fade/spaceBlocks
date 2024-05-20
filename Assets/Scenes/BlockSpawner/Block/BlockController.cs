@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Scenes.BlockSpawner.Block
 {
@@ -45,6 +46,12 @@ namespace Scenes.BlockSpawner.Block
         public void UpdateHp(int value)
         {
             _model.Hp = value;
+            _view.SetHpText(_model.Hp);
+        }
+
+        public void ResetBlock()
+        {
+            _model.Reset();
             _view.SetHpText(_model.Hp);
         }
     }

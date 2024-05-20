@@ -43,7 +43,7 @@ namespace Scenes.Block
                 for (float x = 0; x < GridSize; x++)
                 {
                     BlockController block = Get();
-                    block.UpdateHp(Random.Range(1, 5));
+                    block.ResetBlock();
                     block.transform.position = new Vector3(( _spacing - _gridSizeX) / 2 + x * _spacing, _gridSizeY + y * _spacing, 0);
                     block.gameObject.SetActive(true);
                     StartCoroutine(Release(block));
