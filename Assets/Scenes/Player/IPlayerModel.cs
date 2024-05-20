@@ -6,6 +6,7 @@ namespace Scenes.Player
         double ShootRate { get; set; }
         double Damage { get; set; }
         int Hp { get; set; }
+        int Speed { get; set; }
         void IncrementKillCount();
     }
 }

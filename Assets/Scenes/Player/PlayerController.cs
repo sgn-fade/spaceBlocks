@@ -35,11 +35,11 @@ namespace Scenes.Player
         {
             if (Input.touchCount > 0)
             {
-                Vector3 targetPosition = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
-                var transform1 = transform;
-                var position = transform1.position;
-                targetPosition.z = position.z;
-                transform1.up = (targetPosition - position).normalized;
+                var position = transform.position;
+
+                float targetXPosition = (_camera.ScreenToWorldPoint(Input.GetTouch(0).position).x - position.x)
+                                        * (Time.deltaTime * _model.Speed);
+                transform.Translate(targetXPosition, 0, 0);
             }
         }
 

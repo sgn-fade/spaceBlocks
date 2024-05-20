@@ -7,6 +7,8 @@ namespace Scenes.Player
         public double ShootRate { get; set; } = 0.5;
         public double Damage { get; set; } = 1;
         public int Hp { get; set; } = 10;
+        public int Speed { get; set; } = 5;
+
         public void IncrementKillCount()
         {
             KillCount++;
