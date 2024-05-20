@@ -6,18 +6,23 @@ namespace Scenes.BlockSpawner.Block
     {
         public int Hp { get; set; }
         public int Cost { get; set; }
-        public int CostMultiplier { get; set; }
+        private int DifficultMultiplier { get; set; }
 
-        public BlockModel(int hp)
+        public BlockModel(int tier)
         {
-            CostMultiplier = 1;
-            Reset();
+            DifficultMultiplier = 1;
+            Reset(tier);
+        }
+        public BlockModel()
+        {
+            DifficultMultiplier = 1;
+            Reset(Random.Range(1, 5));
         }
 
-        public void Reset()
+        public void Reset(int tier)
         {
-            Hp = Random.Range(1, 5);
-            Cost = Hp * CostMultiplier;
+            Hp = tier * DifficultMultiplier;
+            Cost = Hp * DifficultMultiplier;
         }
     }
 }

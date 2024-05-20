@@ -8,19 +8,21 @@ namespace Scenes.BlockSpawner.Block
     public class BlockController : MonoBehaviour, IBlockController
     {
         public static event Action<int> OnEnemyKilled;
-        private readonly Vector2 _velocity = new Vector2(0, -1);
+        private readonly Vector2 _velocity = new (0, -1);
 
         private BlockModel _model;
         private BlockView _view;
+        private readonly Color[] _blockColors = new[] { Color.green, Color.cyan, Color.blue, Color.magenta, Color.red, };
         private void Awake()
         {
             _view = gameObject.GetComponentInChildren<BlockView>();
-            _model = new BlockModel(1);
+            _model = new BlockModel();
         }
 
         private void Start()
         {
             UpdateHp(_model.Hp);
+            ResetBlock();
         }
         private void Update()
         {
@@ -51,7 +53,9 @@ namespace Scenes.BlockSpawner.Block
 
         public void ResetBlock()
         {
-            _model.Reset();
+            var tier = Random.Range(1, 5);
+            _view.SetBlockColor(_blockColors[tier - 1]);
+            _model.Reset(tier);
             _view.SetHpText(_model.Hp);
         }
     }
