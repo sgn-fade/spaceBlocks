@@ -4,5 +4,6 @@ namespace Scenes.BlockSpawner.Block
     {
         int Hp { get; set; }
         int Cost { get; set; }
+        void Reset(int tier);
     }
 }

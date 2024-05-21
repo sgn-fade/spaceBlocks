@@ -10,8 +10,8 @@ namespace Scenes.BlockSpawner.Block
         public static event Action<int> OnEnemyKilled;
         private readonly Vector2 _velocity = new (0, -1);
 
-        private BlockModel _model;
-        private BlockView _view;
+        private IBlockModel _model;
+        private IBlockView _view;
         private readonly Color[] _blockColors = new[] { Color.green, Color.cyan, Color.blue, Color.magenta, Color.red, };
         private void Awake()
         {

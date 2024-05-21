@@ -7,8 +7,8 @@ namespace Scenes.CoinManager
 {
     public class CoinController : MonoBehaviour, ICoinController
     {
-        private CoinModel _model;
-        private CoinView _view;
+        private ICoinModel _model;
+        private ICoinView _view;
         private void OnDisable()
         {
             BlockController.OnEnemyKilled -= OnEnemyKilled;

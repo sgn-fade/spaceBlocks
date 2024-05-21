@@ -56,7 +56,7 @@ namespace Scenes.Block
         }
         private IEnumerator Release(BlockController bullet)
         {
-            yield return new WaitForSeconds(7);
+            yield return new WaitForSeconds(10);
             _blockPool.Release(bullet);
         }
 

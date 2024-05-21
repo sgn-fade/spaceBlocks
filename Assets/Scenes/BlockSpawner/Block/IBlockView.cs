@@ -1,8 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public interface IBlockView
+namespace Scenes.BlockSpawner.Block
 {
-    void SetHpText(int value);
+    public interface IBlockView
+    {
+        void SetHpText(int value);
+        void SetBlockColor(Color value);
+    }
 }

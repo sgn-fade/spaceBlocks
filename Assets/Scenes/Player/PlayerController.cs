@@ -8,8 +8,8 @@ namespace Scenes.Player
     {
         private Camera _camera;
 
-        private PlayerModel _model;
-        private PlayerView _view;
+        private IPlayerModel _model;
+        private IPlayerView _view;
         private BulletManager.BulletManager _bulletManager;
 
         private void Awake()
