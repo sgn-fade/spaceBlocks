@@ -11,11 +11,12 @@ namespace Scenes.Player
         private IPlayerModel _model;
         private IPlayerView _view;
         private BulletManager.BulletManager _bulletManager;
-
+        private Transform _transform;
+        private static GameObject _gameObject;
         private void Awake()
         {
-            _view = gameObject.GetComponentInChildren<PlayerView>();
-            _bulletManager = gameObject.GetComponent<BulletManager.BulletManager>();
+            _view = _gameObject.GetComponentInChildren<PlayerView>();
+            _bulletManager = _gameObject.GetComponent<BulletManager.BulletManager>();
             _model = new PlayerModel();
             _camera = Camera.main;
             SetShootRate(_model.ShootRate);
@@ -35,11 +36,11 @@ namespace Scenes.Player
         {
             if (Input.touchCount > 0)
             {
-                var position = transform.position;
+                var position = _transform.position;
 
                 float targetXPosition = (_camera.ScreenToWorldPoint(Input.GetTouch(0).position).x - position.x)
                                         * (Time.deltaTime * _model.Speed);
-                transform.Translate(targetXPosition, 0, 0);
+                _transform.Translate(targetXPosition, 0, 0);
             }
         }
 

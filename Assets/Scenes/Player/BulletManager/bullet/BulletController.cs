@@ -8,6 +8,7 @@ namespace Scenes.Player.BulletManager.bullet
     {
         private IBulletModel _model;
         private readonly Vector2 _velocity = new Vector2(0, 5);
+        private static GameObject _gameObject;
 
         private void Awake()
         {
@@ -23,7 +24,7 @@ namespace Scenes.Player.BulletManager.bullet
         {
             if (other.TryGetComponent(out BlockController block))
             {
-                gameObject.SetActive(false);
+                _gameObject.SetActive(false);
                 block.TakeDamage(GetDamage());
             }
         }
