@@ -7,7 +7,7 @@ namespace Scenes.Player
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         private Camera _camera;
-
+        [SerializeField] private GameObject _settings;
         private IPlayerModel _model;
         private IPlayerView _view;
         private BulletManager.BulletManager _bulletManager;
@@ -36,7 +36,7 @@ namespace Scenes.Player
 
         public void Move()
         {
-            if (Input.touchCount > 0)
+            if (Input.touchCount > 0 && !_settings.activeSelf)
             {
                 var position = _transform.position;
 
