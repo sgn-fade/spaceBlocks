@@ -12,10 +12,12 @@ namespace Scenes.Player
         private IPlayerView _view;
         private BulletManager.BulletManager _bulletManager;
         private Transform _transform;
-        private static GameObject _gameObject;
+        private GameObject _gameObject;
         private void Awake()
         {
-            _view = _gameObject.GetComponentInChildren<PlayerView>();
+            _transform = transform;
+            _gameObject = gameObject;
+            _view = _gameObject.GetComponentInChildren<IPlayerView>();
             _bulletManager = _gameObject.GetComponent<BulletManager.BulletManager>();
             _model = new PlayerModel();
             _camera = Camera.main;

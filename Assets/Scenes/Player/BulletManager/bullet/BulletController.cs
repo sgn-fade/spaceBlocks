@@ -8,10 +8,11 @@ namespace Scenes.Player.BulletManager.bullet
     {
         private IBulletModel _model;
         private readonly Vector2 _velocity = new Vector2(0, 5);
-        private static GameObject _gameObject;
+        private GameObject _gameObject;
 
         private void Awake()
         {
+            _gameObject = gameObject;
             _model = new BulletModelCriticalChance();
         }
 

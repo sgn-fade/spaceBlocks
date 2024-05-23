@@ -11,17 +11,17 @@ namespace Scenes.BlockSpawner.Block
         private readonly Vector2 _velocity = new (0, -1);
 
         private Transform _transform;
-        private static GameObject _gameObject;
+        private GameObject _gameObject;
         private IBlockModel _model;
         private IBlockView _view;
         private readonly Color[] _blockColors = new[] { Color.green, Color.cyan, Color.blue, Color.magenta, Color.red, };
 
         private void Awake()
         {
-            _view = gameObject.GetComponentInChildren<BlockView>();
-            _model = new BlockModel();
             _transform = transform;
             _gameObject = gameObject;
+            _view = gameObject.GetComponentInChildren<BlockView>();
+            _model = new BlockModel();
         }
 
         private void Start()
