@@ -1,18 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Settings : MonoBehaviour
+namespace Scenes.UI
 {
-
-    public void OnSettingsPressed()
+    public class Settings : MonoBehaviour
     {
-        gameObject.SetActive(true);
-    }
-    public void OnExitPressed()
-    {
-        gameObject.SetActive(false);
-    }
 
+        public void OnSettingsPressed()
+        {
+            Debug.Log(1);
+            gameObject.SetActive(true);
+        }
+        public void OnExitPressed()
+        {
+            gameObject.SetActive(false);
+        }
+
+    }
 }
