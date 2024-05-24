@@ -702,7 +702,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1951,12 +1951,20 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7028943053531322721, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 282.2338
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028943053531322721, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 294.6101
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028943053531322721, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -102
+      value: 270.5935
       objectReference: {fileID: 0}
     - target: {fileID: 7028943053531322721, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -151
+      value: -140.69116
       objectReference: {fileID: 0}
     - target: {fileID: 7596013984011700730, guid: 152d0ec30ffaf794a92fd53834ddaf91, type: 3}
       propertyPath: m_Text
