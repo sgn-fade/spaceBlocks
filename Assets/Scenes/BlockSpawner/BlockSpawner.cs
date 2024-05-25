@@ -13,8 +13,8 @@ namespace Scenes.BlockSpawner
         private float _gridSizeX;
         private float _gridSizeY;
 
-        private int _difficulty = 1;
-        private bool isGameActive = true;
+        private float _difficulty = 1;
+        private bool _isGameActive = true;
 
         private const int GridSize = 7;
         private void Awake()
@@ -33,29 +33,29 @@ namespace Scenes.BlockSpawner
 
         private IEnumerator DifficultyCap()
         {
-            while (isGameActive)
+            while (_isGameActive)
             {
-                _difficulty++;
+                _difficulty += 0.5f;
                 yield return new WaitForSeconds(10);
             }
         }
 
         private IEnumerator SpawnBlock()
         {
-            while (isGameActive)
+            while (_isGameActive)
             {
                 SpawnBlockLine(1);
-                yield return new WaitForSeconds(4f);
+                yield return new WaitForSeconds(6f);
             }
         }
 
         public void OffGame()
         {
-            isGameActive = false;
+            _isGameActive = false;
         }
         public void OnGame()
         {
-            isGameActive = true;
+            _isGameActive = true;
         }
 
         private void SpawnBlockLine(int number)
@@ -79,7 +79,7 @@ namespace Scenes.BlockSpawner
         }
         private IEnumerator Release(BlockController bullet)
         {
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(15);
             _blockPool.Release(bullet);
         }
 

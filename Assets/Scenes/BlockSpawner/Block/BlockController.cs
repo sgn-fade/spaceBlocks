@@ -8,7 +8,7 @@ namespace Scenes.BlockSpawner.Block
     public class BlockController : MonoBehaviour, IBlockController
     {
         public static event Action<int> OnEnemyKilled;
-        private readonly Vector2 _velocity = new (0, -1);
+        private readonly Vector2 _velocity = new (0, -0.5f);
 
         private Transform _transform;
         private GameObject _gameObject;
@@ -45,7 +45,7 @@ namespace Scenes.BlockSpawner.Block
             _gameObject.SetActive(false);
         }
 
-        public void ChangeDifficulty(int value)
+        public void ChangeDifficulty(float value)
         {
             _model.DifficultMultiplier = value;
         }

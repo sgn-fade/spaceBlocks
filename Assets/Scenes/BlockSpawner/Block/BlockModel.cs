@@ -6,7 +6,7 @@ namespace Scenes.BlockSpawner.Block
     {
         public int Hp { get; set; }
         public int Cost { get; set; }
-        public int DifficultMultiplier { get; set; }
+        public float DifficultMultiplier { get; set; }
 
         public BlockModel(int tier)
         {
@@ -21,8 +21,8 @@ namespace Scenes.BlockSpawner.Block
 
         public void Reset(int tier)
         {
-            Hp = tier * DifficultMultiplier;
-            Cost = Hp * DifficultMultiplier;
+            Hp = (int)(tier * DifficultMultiplier);
+            Cost = (int)(Hp * DifficultMultiplier);
         }
     }
 }
