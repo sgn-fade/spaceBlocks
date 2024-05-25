@@ -7,7 +7,7 @@ namespace Scenes.Player.BulletManager.bullet
     public class BulletController : MonoBehaviour
     {
         private IBulletModel _model;
-        private readonly Vector2 _velocity = new Vector2(0, 5);
+        private readonly Vector2 _velocity = new Vector2(0, 10);
         private GameObject _gameObject;
 
         private void Awake()
