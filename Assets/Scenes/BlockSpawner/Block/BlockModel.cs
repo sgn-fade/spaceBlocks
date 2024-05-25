@@ -6,7 +6,7 @@ namespace Scenes.BlockSpawner.Block
     {
         public int Hp { get; set; }
         public int Cost { get; set; }
-        private int DifficultMultiplier { get; set; }
+        public int DifficultMultiplier { get; set; }
 
         public BlockModel(int tier)
         {

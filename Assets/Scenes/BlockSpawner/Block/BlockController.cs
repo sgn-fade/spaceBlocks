@@ -45,6 +45,10 @@ namespace Scenes.BlockSpawner.Block
             _gameObject.SetActive(false);
         }
 
+        public void ChangeDifficulty(int value)
+        {
+            _model.DifficultMultiplier = value;
+        }
         public void Move()
         {
             _transform.Translate(_velocity * Time.deltaTime);

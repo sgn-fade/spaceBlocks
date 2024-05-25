@@ -2,7 +2,7 @@ using System.Collections;
 using Scenes.BlockSpawner.Block;
 using UnityEngine;
 
-namespace Scenes.Block
+namespace Scenes.BlockSpawner
 {
     public class BlockSpawner : MonoBehaviour
     {
@@ -12,6 +12,9 @@ namespace Scenes.Block
         private float _spacing;
         private float _gridSizeX;
         private float _gridSizeY;
+
+        private int _difficulty = 1;
+        private bool isGameActive = true;
 
         private const int GridSize = 7;
         private void Awake()
@@ -25,15 +28,34 @@ namespace Scenes.Block
         private void Start()
         {
             StartCoroutine(SpawnBlock());
+            StartCoroutine(DifficultyCap());
+        }
+
+        private IEnumerator DifficultyCap()
+        {
+            while (isGameActive)
+            {
+                _difficulty++;
+                yield return new WaitForSeconds(10);
+            }
         }
 
         private IEnumerator SpawnBlock()
         {
-            while (true)
+            while (isGameActive)
             {
                 SpawnBlockLine(1);
                 yield return new WaitForSeconds(4f);
             }
+        }
+
+        public void OffGame()
+        {
+            isGameActive = false;
+        }
+        public void OnGame()
+        {
+            isGameActive = true;
         }
 
         private void SpawnBlockLine(int number)
@@ -43,6 +65,7 @@ namespace Scenes.Block
                 for (float x = 0; x < GridSize; x++)
                 {
                     BlockController block = Get();
+                    block.ChangeDifficulty(_difficulty);
                     block.ResetBlock();
                     block.transform.position = new Vector3(( _spacing - _gridSizeX) / 2 + x * _spacing, _gridSizeY + y * _spacing, 0);
                     block.gameObject.SetActive(true);
