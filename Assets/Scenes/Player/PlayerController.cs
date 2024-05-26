@@ -27,6 +27,7 @@ namespace Scenes.Player
         private void Start()
         {
             _view.SetHpText(_model.Hp);
+            Debug.Log(_model.Hp);
         }
 
         private void Update()
@@ -69,7 +70,9 @@ namespace Scenes.Player
 
         public void UpgradeHp()
         {
+            _model.MaxHp++;
             _model.Hp++;
+            _view.SetHpText(_model.Hp);
         }
 
         public void UpgradeDamage()

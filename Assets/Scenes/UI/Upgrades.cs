@@ -15,6 +15,9 @@ namespace Scenes.UI
         [SerializeField] private Text damageCostLabel;
         [SerializeField] private Text hpCostLabel;
 
+        [SerializeField] private Text damageLevelLabel;
+        [SerializeField] private Text hpLevelLabel;
+
         private IPlayerController _playerController;
         private ICoinController _coinController;
 
@@ -45,21 +48,18 @@ namespace Scenes.UI
         {
             if (_coinController.PayMoney(UpgradeCost(_damageLevel)))
             {
-                Debug.Log("upgrade successful");
                 _playerController.UpgradeDamage();
-                _damageLevel++;
+                damageLevelLabel.text = (++_damageLevel).ToString();
                 damageCostLabel.text = UpgradeCost(_damageLevel).ToString();
-                return;
             }
 
-            Debug.Log("not enough");
         }
         public void OnHpUpPressed()
         {
             if (_coinController.PayMoney(UpgradeCost(_hpLevel)))
             {
                 _playerController.UpgradeHp();
-                _hpLevel++;
+                hpLevelLabel.text = (++_hpLevel).ToString();
                 hpCostLabel.text = UpgradeCost(_hpLevel).ToString();
             }
         }
