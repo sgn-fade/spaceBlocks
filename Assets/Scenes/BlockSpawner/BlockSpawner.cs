@@ -45,7 +45,7 @@ namespace Scenes.BlockSpawner
             while (_isGameActive)
             {
                 SpawnBlockLine(1);
-                yield return new WaitForSeconds(6f);
+                yield return new WaitForSeconds(10f);
             }
         }
 
@@ -79,7 +79,7 @@ namespace Scenes.BlockSpawner
         }
         private IEnumerator Release(BlockController bullet)
         {
-            yield return new WaitForSeconds(15);
+            yield return new WaitForSeconds(20);
             _blockPool.Release(bullet);
         }
 
