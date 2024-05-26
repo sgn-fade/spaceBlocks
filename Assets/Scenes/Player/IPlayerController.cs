@@ -5,7 +5,9 @@ namespace Scenes.Player
     {
         void Move();
         void SetShootRate(double value);
-        void SetDamage(int value);
         void UpdateHp(int value);
+        void UpgradeHp();
+        void UpgradeDamage();
+        int GetDamage();
     }
 }

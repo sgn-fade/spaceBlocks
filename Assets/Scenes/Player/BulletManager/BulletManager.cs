@@ -7,14 +7,17 @@ namespace Scenes.Player.BulletManager
 {
     public class BulletManager : MonoBehaviour
     {
+        [SerializeField] private MonoBehaviour player;
         [SerializeField] private BulletController bulletControllerPrefab;
         private ObjectPool<BulletController> _bulletPool;
-        
+
+        private IPlayerController _playerController;
         private float _shootRate;
 
         private void Awake()
         {
             _bulletPool = new ObjectPool<BulletController>(bulletControllerPrefab);
+            _playerController = player as IPlayerController;
         }
 
         private void Start()
@@ -33,6 +36,7 @@ namespace Scenes.Player.BulletManager
         private BulletController Get()
         {
             BulletController bulletController = _bulletPool.Get();
+            bulletController.SetDamage(_playerController.GetDamage());
             bulletController.gameObject.SetActive(true);
             bulletController.transform.position = transform.position;
             return bulletController;

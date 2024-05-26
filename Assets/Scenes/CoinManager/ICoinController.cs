@@ -1,8 +1,10 @@
+using System;
+
 namespace Scenes.CoinManager
 {
     public interface ICoinController
     {
-        void UpdateMoney(int value);
-
+        void AddMoney(int value);
+        bool PayMoney(int value);
     }
 }

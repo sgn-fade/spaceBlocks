@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0a6b81346a9ff47a78ed77a3b39c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _settings: {fileID: 0}
 --- !u!114 &7084628391511648272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d2bae7f89e0134285d416cafd9b1ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7170615792900672537}
   bulletControllerPrefab: {fileID: -5615254289809883231, guid: 478e050c767f04a409ed184753331c31, type: 3}
 --- !u!61 &1054256222137750703
 BoxCollider2D:

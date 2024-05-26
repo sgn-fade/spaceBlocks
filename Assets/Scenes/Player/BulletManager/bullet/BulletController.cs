@@ -6,14 +6,13 @@ namespace Scenes.Player.BulletManager.bullet
 {
     public class BulletController : MonoBehaviour
     {
-        private IBulletModel _model;
         private readonly Vector2 _velocity = new Vector2(0, 10);
         private GameObject _gameObject;
 
+        private int _damage = 1;
         private void Awake()
         {
             _gameObject = gameObject;
-            _model = new BulletModelCriticalChance();
         }
 
         private void Update()
@@ -26,18 +25,13 @@ namespace Scenes.Player.BulletManager.bullet
             if (other.TryGetComponent(out BlockController block))
             {
                 _gameObject.SetActive(false);
-                block.TakeDamage(GetDamage());
+                block.TakeDamage(_damage);
             }
-        }
-
-        public int GetDamage()
-        {
-            return _model.Damage;
         }
 
         public void SetDamage(int value)
         {
-            _model.Damage = value;
+            _damage = value;
         }
     }
 }

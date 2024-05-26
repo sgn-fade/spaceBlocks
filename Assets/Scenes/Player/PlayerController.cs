@@ -51,10 +51,6 @@ namespace Scenes.Player
             _bulletManager.SetShootRate(value);
         }
 
-        public void SetDamage(int value)
-        {
-            throw new NotImplementedException();
-        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -69,6 +65,22 @@ namespace Scenes.Player
         {
             _model.Hp += value;
             _view.SetHpText(_model.Hp);
+        }
+
+        public void UpgradeHp()
+        {
+            _model.Hp++;
+        }
+
+        public void UpgradeDamage()
+        {
+            _model.Damage++;
+            Debug.Log(_model.Damage);
+        }
+
+        public int GetDamage()
+        {
+            return (int)_model.Damage;
         }
     }
 }

@@ -11,8 +11,10 @@ namespace Scenes.CoinManager
     {
         private ICoinModel _model;
         private ICoinView _view;
-        private int _distance = 0;
+        private int _distance;
         [SerializeField] private Text distanceView;
+
+
         private void OnDisable()
         {
             BlockController.OnEnemyKilled -= OnEnemyKilled;
@@ -25,7 +27,7 @@ namespace Scenes.CoinManager
 
         private void OnEnemyKilled(int value)
         {
-            UpdateMoney(value);
+            AddMoney(value);
         }
 
         private void Awake()
@@ -54,10 +56,26 @@ namespace Scenes.CoinManager
             distanceView.text = _distance.ToString();
         }
 
-        public void UpdateMoney(int value)
+        public void AddMoney(int value)
         {
             _model.NumberOfCoins += value;
             _view.UpdateMoney(_model.NumberOfCoins);
+        }
+
+        public bool PayMoney(int value)
+        {
+            if (value > _model.NumberOfCoins)
+            {
+                return false;
+            }
+            _model.NumberOfCoins -= value;
+            _view.UpdateMoney(_model.NumberOfCoins);
+            return true;
+        }
+
+        public int GetMoney()
+        {
+            return _model.NumberOfCoins;
         }
     }
 }
