@@ -45,7 +45,7 @@ namespace Scenes.BlockSpawner
             while (_isGameActive)
             {
                 SpawnBlockLine(1);
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForSeconds(5f);
             }
         }
 

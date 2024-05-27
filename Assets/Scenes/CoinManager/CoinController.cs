@@ -46,6 +46,10 @@ namespace Scenes.CoinManager
             while (true)
             {
                 _distance++;
+                if (_distance % 3 == 0)
+                {
+                    AddMoney(1);
+                }
                 UpdateDistanceView();
                 yield return new WaitForSeconds(0.4f);
             }

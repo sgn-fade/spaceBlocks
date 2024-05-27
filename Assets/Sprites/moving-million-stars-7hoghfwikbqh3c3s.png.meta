@@ -1,0 +1,1009 @@
+fileFormatVersion: 2
+guid: 0fe69ffe48659ff49904fd349f6a5bc1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e1a8379ed497a4297f9ed9a0abcf6a
+      internalID: 887374663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2880
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751757fb46e64724baaea8422ce58fc7
+      internalID: -1910266998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2880
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef67a36ba2845a44aac045d63b62c18
+      internalID: -2030374609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2880
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17713f4cf0583c45a4c4f27c4c3411b
+      internalID: 715609602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2880
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5020e3edd188ed446b3b6f1e80890206
+      internalID: 566619098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_5
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 2880
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f79c73aef7f280843b576157bd0675b3
+      internalID: 1700334008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_6
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2880
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841c0bf85d3b92c4bb86959603410173
+      internalID: -201914422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f6fbe6e97e48ea44805bb35755b5121
+      internalID: 347266208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_8
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2304
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14489db9d7839ca4da0471734d81ad82
+      internalID: -895952659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_9
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2304
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05227010ba05f5d40ad94f91f994ec20
+      internalID: -1662356276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_10
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2304
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ecad7558dc7f3a43be093346dd51553
+      internalID: 1394275829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_11
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2304
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b759597dc3c6054b98b9294a12300aa
+      internalID: 507808237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_12
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 2304
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5b603a14bf3d3d449b87496f0a369f4
+      internalID: -1162673770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_13
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2304
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc9158f7778653498fe0e4d6b6dcf4d
+      internalID: 1506374913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1728
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e5857d2ccc3ea49aaadfa26765ef42
+      internalID: -1094852157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_15
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1728
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e209333b507454488373132b5eea51
+      internalID: 1347267184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_16
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1728
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74fca0333be43b542bd8567df677ccdc
+      internalID: 1713978525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_17
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1728
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e06ee9499d25e4b870f8f4bf6dfed3
+      internalID: -1781640271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_18
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1728
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9cf386a201e28d42882cfe52fe76a62
+      internalID: -1742983476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_19
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1728
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cddc948604c9e94091d07e31ff83de8
+      internalID: -984634456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_20
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1728
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79beec0d5f2355542bcb1cf5bc00f6b7
+      internalID: 1714796975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af19aac0b2a36d45a16224b14ab9397
+      internalID: 1966036376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_22
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1152
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868224f02c9e5c7448d172d30508a43d
+      internalID: -1396089186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_23
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1152
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 401cb3542d523134da7e9a1e5fd31be8
+      internalID: 1271101522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_24
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1152
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f72cbf68ba977a4980645db03e558b2
+      internalID: -1507487044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_25
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1152
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a0219bd25454e478fa21049f4f4c22
+      internalID: -760857866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_26
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1152
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4410db1c29d14a748b221def319aa732
+      internalID: 171275789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_27
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1152
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 811c1d7287bde764b981165bc95351b4
+      internalID: 1617036803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ffec2bb37a7be8419c9d6180f1e7f86
+      internalID: -1146771765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_29
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 576
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0df4aae9b0aa5a41a7d7333f83b12f6
+      internalID: 380253724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_30
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 576
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6944390aae21c3949985646b7653e2e3
+      internalID: -1057731650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_31
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 576
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9d06561129219479105e7b23e3b11e
+      internalID: -70081122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_32
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 576
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367d1b1685615244fa2b4356af842e94
+      internalID: 1169372598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_33
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 576
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bb135713bc8947479609d0a4ffcae6d
+      internalID: -232193699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_34
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 576
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f093bc5a2c17824d948fb23cc43c10a
+      internalID: 1839489848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b22f728aa89164da2de4c53562fc26
+      internalID: 887452167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_36
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 947d4db810c3d6e40bcc8806a97ba584
+      internalID: 771349662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_37
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06df941ddf594ee4fbe1b9f2ce1b8476
+      internalID: -1223209118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_38
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93472627ef0252f40a148a3a3389ed5b
+      internalID: 1903893568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moving-million-stars-7hoghfwikbqh3c3s_39
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 500
+        height: 576
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4feb79726e477f24e89d02f31a0cab64
+      internalID: 1340679077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      moving-million-stars-7hoghfwikbqh3c3s_0: 887374663
+      moving-million-stars-7hoghfwikbqh3c3s_1: -1910266998
+      moving-million-stars-7hoghfwikbqh3c3s_10: 1394275829
+      moving-million-stars-7hoghfwikbqh3c3s_11: 507808237
+      moving-million-stars-7hoghfwikbqh3c3s_12: -1162673770
+      moving-million-stars-7hoghfwikbqh3c3s_13: 1506374913
+      moving-million-stars-7hoghfwikbqh3c3s_14: -1094852157
+      moving-million-stars-7hoghfwikbqh3c3s_15: 1347267184
+      moving-million-stars-7hoghfwikbqh3c3s_16: 1713978525
+      moving-million-stars-7hoghfwikbqh3c3s_17: -1781640271
+      moving-million-stars-7hoghfwikbqh3c3s_18: -1742983476
+      moving-million-stars-7hoghfwikbqh3c3s_19: -984634456
+      moving-million-stars-7hoghfwikbqh3c3s_2: -2030374609
+      moving-million-stars-7hoghfwikbqh3c3s_20: 1714796975
+      moving-million-stars-7hoghfwikbqh3c3s_21: 1966036376
+      moving-million-stars-7hoghfwikbqh3c3s_22: -1396089186
+      moving-million-stars-7hoghfwikbqh3c3s_23: 1271101522
+      moving-million-stars-7hoghfwikbqh3c3s_24: -1507487044
+      moving-million-stars-7hoghfwikbqh3c3s_25: -760857866
+      moving-million-stars-7hoghfwikbqh3c3s_26: 171275789
+      moving-million-stars-7hoghfwikbqh3c3s_27: 1617036803
+      moving-million-stars-7hoghfwikbqh3c3s_28: -1146771765
+      moving-million-stars-7hoghfwikbqh3c3s_29: 380253724
+      moving-million-stars-7hoghfwikbqh3c3s_3: 715609602
+      moving-million-stars-7hoghfwikbqh3c3s_30: -1057731650
+      moving-million-stars-7hoghfwikbqh3c3s_31: -70081122
+      moving-million-stars-7hoghfwikbqh3c3s_32: 1169372598
+      moving-million-stars-7hoghfwikbqh3c3s_33: -232193699
+      moving-million-stars-7hoghfwikbqh3c3s_34: 1839489848
+      moving-million-stars-7hoghfwikbqh3c3s_35: 887452167
+      moving-million-stars-7hoghfwikbqh3c3s_36: 771349662
+      moving-million-stars-7hoghfwikbqh3c3s_37: -1223209118
+      moving-million-stars-7hoghfwikbqh3c3s_38: 1903893568
+      moving-million-stars-7hoghfwikbqh3c3s_39: 1340679077
+      moving-million-stars-7hoghfwikbqh3c3s_4: 566619098
+      moving-million-stars-7hoghfwikbqh3c3s_40: -997279551
+      moving-million-stars-7hoghfwikbqh3c3s_41: -340935565
+      moving-million-stars-7hoghfwikbqh3c3s_5: 1700334008
+      moving-million-stars-7hoghfwikbqh3c3s_6: -201914422
+      moving-million-stars-7hoghfwikbqh3c3s_7: 347266208
+      moving-million-stars-7hoghfwikbqh3c3s_8: -895952659
+      moving-million-stars-7hoghfwikbqh3c3s_9: -1662356276
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
