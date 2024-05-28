@@ -7,16 +7,19 @@ namespace Scenes.Player
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         private Camera _camera;
-        [SerializeField] private GameObject _settings;
+        [SerializeField] private GameObject settings;
         private IPlayerModel _model;
         private IPlayerView _view;
         private BulletManager.BulletManager _bulletManager;
+        private Vector3 _position;
         private Transform _transform;
         private GameObject _gameObject;
+        private Rigidbody2D _rigidBody;
         private void Awake()
         {
-            _transform = transform;
             _gameObject = gameObject;
+            _rigidBody = gameObject.GetComponent<Rigidbody2D>();
+            _transform = transform;
             _view = _gameObject.GetComponentInChildren<IPlayerView>();
             _bulletManager = _gameObject.GetComponent<BulletManager.BulletManager>();
             _model = new PlayerModel();
@@ -27,7 +30,6 @@ namespace Scenes.Player
         private void Start()
         {
             _view.SetHpText(_model.Hp);
-            Debug.Log(_model.Hp);
         }
 
         private void Update()
@@ -37,14 +39,10 @@ namespace Scenes.Player
 
         public void Move()
         {
-            if (Input.touchCount > 0 && !_settings.activeSelf)
-            {
-                var position = _transform.position;
-
-                float targetXPosition = (_camera.ScreenToWorldPoint(Input.GetTouch(0).position).x - position.x)
-                                        * (Time.deltaTime * _model.Speed);
-                _transform.Translate(targetXPosition, 0, 0);
-            }
+            if (Input.touchCount <= 0 || settings.activeSelf) return;
+            var targetXPosition = (_camera.ScreenToWorldPoint(Input.GetTouch(0).position).x - _transform.position.x);
+            var direction = new Vector3(targetXPosition, 0, 0);
+            _rigidBody.velocity = direction * _model.Speed;
         }
 
         public void SetShootRate(double value)
