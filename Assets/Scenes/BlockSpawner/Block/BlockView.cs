@@ -10,10 +10,11 @@ namespace Scenes.BlockSpawner.Block
         [SerializeField] private GameObject textUi;
         private Text _text;
         [SerializeField] private SpriteRenderer spriteRenderer;
+        private ParticleSystem _particles;
 
         private void Awake()
         {
-            
+            _particles = GetComponent<ParticleSystem>();
             _text = textUi.GetComponent<Text>();
         }
 
@@ -25,6 +26,20 @@ namespace Scenes.BlockSpawner.Block
         public void SetBlockColor(Color blockColor)
         {
             spriteRenderer.color = blockColor;
+            var particlesMain = _particles.main;
+            particlesMain.startColor = blockColor;
+        }
+
+        public void DestroyBlock()
+        {
+            textUi.SetActive(false);
+            spriteRenderer.enabled = false;
+            _particles.Play();
+        }
+        private void OnEnable()
+        {
+            textUi.SetActive(true);
+            spriteRenderer.enabled = true;
         }
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -12,15 +14,19 @@ namespace Scenes.BlockSpawner.Block
 
         private Transform _transform;
         private GameObject _gameObject;
+        [SerializeField] private GameObject hpObject;
         private IBlockModel _model;
         private IBlockView _view;
+
+        private AudioSource _audioSource;
         private readonly Color[] _blockColors = new[] { Color.green, Color.cyan, Color.blue, Color.magenta, Color.red, };
 
         private void Awake()
         {
+            _audioSource = GetComponent<AudioSource>();
             _transform = transform;
             _gameObject = gameObject;
-            _view = gameObject.GetComponentInChildren<BlockView>();
+            _view = gameObject.GetComponent<BlockView>();
             _model = new BlockModel();
         }
 
@@ -36,14 +42,25 @@ namespace Scenes.BlockSpawner.Block
         
         public void TakeDamage(int value)
         {
+            if (_model.Hp <= 0) return;
             UpdateHp(_model.Hp -value);
             _view.SetHpText(_model.Hp);
-
+            _audioSource.Play();
             if (_model.Hp > 0) return;
 
             OnEnemyKilled?.Invoke(_model.Cost);
+            StartCoroutine(DestroyBlock());
+
+        }
+
+        private IEnumerator DestroyBlock()
+        {
+            _view.DestroyBlock();
+            _audioSource.Play();
+            yield return new WaitForSeconds(_audioSource.clip.length);
             _gameObject.SetActive(false);
         }
+
 
         public void ChangeDifficulty(float value)
         {

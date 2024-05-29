@@ -6,5 +6,6 @@ namespace Scenes.BlockSpawner.Block
     {
         void SetHpText(int value);
         void SetBlockColor(Color value);
+        void DestroyBlock();
     }
 }
