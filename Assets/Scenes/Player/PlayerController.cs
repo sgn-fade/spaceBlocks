@@ -11,8 +11,9 @@ namespace Scenes.Player
         private IPlayerModel _model;
         private IPlayerView _view;
         private BulletManager.BulletManager _bulletManager;
-        private Vector3 _position;
         private Transform _transform;
+
+        private Vector3 _targetPosition;
         private GameObject _gameObject;
         private Rigidbody2D _rigidBody;
         private void Awake()
@@ -39,10 +40,14 @@ namespace Scenes.Player
 
         public void Move()
         {
-            if (Input.touchCount <= 0 || settings.activeSelf) return;
-            var targetXPosition = (_camera.ScreenToWorldPoint(Input.GetTouch(0).position).x - _transform.position.x);
-            var direction = new Vector3(targetXPosition, 0, 0);
-            _rigidBody.velocity = direction * _model.Speed;
+            if (settings.activeSelf) return;
+            if (Input.touchCount > 0)
+            {
+                var targetXPosition = (_camera.ScreenToWorldPoint(Input.GetTouch(0).position).x - _transform.position.x);
+                _targetPosition = new Vector3(targetXPosition, 0, 0);
+            }
+
+            _rigidBody.velocity = (_targetPosition - _transform.position) * _model.Speed;
         }
 
         public void SetShootRate(double value)
