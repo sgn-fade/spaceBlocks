@@ -58,10 +58,10 @@ namespace Scenes.Player
             Vector3 direction = (_targetPosition - _transform.position);
             _rigidBody.velocity = direction * _model.Speed;
 
-            // if (Vector3.Distance(_transform.position, _targetPosition) < 0.1f)
-            // {
-            //     _rigidBody.velocity = Vector3.zero;
-            // }
+            if (Vector3.Distance(_transform.position, _targetPosition) < 0.1f)
+            {
+                _rigidBody.velocity = Vector3.zero;
+            }
         }
 
         public void SetShootRate(double value)
