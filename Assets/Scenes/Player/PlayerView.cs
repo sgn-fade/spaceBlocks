@@ -16,6 +16,21 @@ namespace Scenes.Player
             text.text = value.ToString();
         }
 
+        private void OnEnable()
+        {
+            PlayerController.PlayerRevive += OnPlayerRevive;
+        }
+
+        private void OnPlayerRevive()
+        {
+            costButton.SetActive(false);
+        }
+
+        private void OnDisable()
+        {
+            PlayerController.PlayerRevive -= OnPlayerRevive;
+        }
+
         public void StartDeathTimer()
         {
             costButton.SetActive(true);
@@ -27,7 +42,7 @@ namespace Scenes.Player
             if (_remainingTime > 0)
             {
                 _remainingTime -= Time.deltaTime;
-                text.text = (int)_remainingTime / 60 + ":" + _remainingTime % 60;
+                text.text = (int)_remainingTime / 60 + ":" + (int)(_remainingTime % 60);
                 text.color = Color.white;
             }
         }

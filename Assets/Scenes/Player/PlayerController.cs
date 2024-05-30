@@ -47,14 +47,21 @@ namespace Scenes.Player
 
         public void Move()
         {
-            if (settings.activeSelf) return;
+            if (settings.activeSelf || _isPlayerDead) return;
+
             if (Input.touchCount > 0)
             {
-                var targetXPosition = (_camera.ScreenToWorldPoint(Input.GetTouch(0).position).x - _transform.position.x);
-                _targetPosition = new Vector3(targetXPosition, 0, 0);
+                var targetWorldPosition = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+                _targetPosition = new Vector3(targetWorldPosition.x, 0, 0);
             }
 
-            _rigidBody.velocity = _targetPosition * _model.Speed;
+            Vector3 direction = (_targetPosition - _transform.position);
+            _rigidBody.velocity = direction * _model.Speed;
+
+            // if (Vector3.Distance(_transform.position, _targetPosition) < 0.1f)
+            // {
+            //     _rigidBody.velocity = Vector3.zero;
+            // }
         }
 
         public void SetShootRate(double value)
@@ -92,6 +99,7 @@ namespace Scenes.Player
             PlayerRevive?.Invoke();
             _model.Hp = _model.MaxHp;
             _isPlayerDead = false;
+            _view.SetHpText(_model.Hp);
         }
 
         public void OnReviveButtonPressed()
