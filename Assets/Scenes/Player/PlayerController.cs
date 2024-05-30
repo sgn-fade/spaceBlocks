@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using Scenes.BlockSpawner.Block;
 using UnityEngine;
 
@@ -16,6 +16,13 @@ namespace Scenes.Player
         private Vector3 _targetPosition;
         private GameObject _gameObject;
         private Rigidbody2D _rigidBody;
+
+        private bool _isPlayerDead;
+
+        public delegate void OnPlayerDead();
+        public static event OnPlayerDead PlayerDead;
+        public delegate void OnPlayerRevive();
+        public static event OnPlayerDead PlayerRevive;
         private void Awake()
         {
             _gameObject = gameObject;
@@ -47,7 +54,7 @@ namespace Scenes.Player
                 _targetPosition = new Vector3(targetXPosition, 0, 0);
             }
 
-            _rigidBody.velocity = (_targetPosition - _transform.position) * _model.Speed;
+            _rigidBody.velocity = _targetPosition * _model.Speed;
         }
 
         public void SetShootRate(double value)
@@ -68,7 +75,36 @@ namespace Scenes.Player
         public void UpdateHp(int value)
         {
             _model.Hp += value;
+            if (_model.Hp <= 0)
+            {
+                PlayerDeath();
+            }
             _view.SetHpText(_model.Hp);
+        }
+        private IEnumerator AutoRevive()
+        {
+            yield return new WaitForSeconds(300);
+            RevivePlayer();
+        }
+
+        private void RevivePlayer()
+        {
+            PlayerRevive?.Invoke();
+            _model.Hp = _model.MaxHp;
+            _isPlayerDead = false;
+        }
+
+        public void OnReviveButtonPressed()
+        {
+            RevivePlayer();
+        }
+        private void PlayerDeath()
+        {
+            StartCoroutine(AutoRevive());
+            PlayerDead?.Invoke();
+            _isPlayerDead = true;
+            _view.StartDeathTimer();
+
         }
 
         public void UpgradeHp()
