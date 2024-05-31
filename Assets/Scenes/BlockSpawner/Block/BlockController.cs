@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Scenes.Player;
+using Scenes.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -58,7 +59,8 @@ namespace Scenes.BlockSpawner.Block
         private IEnumerator DestroyBlock()
         {
             _view.DestroyBlock();
-            _audioSource.Play();
+            if(Settings.IsAudioEnabled()) _audioSource.Play();
+
             yield return new WaitForSeconds(_audioSource.clip.length);
             _gameObject.SetActive(false);
         }
