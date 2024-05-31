@@ -21,7 +21,6 @@ namespace Scenes.Player
         public PlayerModel()
         {
             Hp = MaxHp;
-            Debug.Log(_hp);
         }
     }
 }

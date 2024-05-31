@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using Scenes.BlockSpawner.Block;
 using Scenes.CoinManager;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Scenes.Player
 {
@@ -10,6 +12,7 @@ namespace Scenes.Player
         private Camera _camera;
         [SerializeField] private GameObject settings;
         [SerializeField] private MonoBehaviour coinManager;
+        [SerializeField] private Button targetTouch;
 
         private IPlayerModel _model;
         private IPlayerView _view;
@@ -21,7 +24,8 @@ namespace Scenes.Player
         private Rigidbody2D _rigidBody;
 
         private bool _isPlayerDead;
-        private ICoinController coinManagerControlller;
+        private ICoinController _coinManagerController;
+        private bool _positionTargeted;
 
         public delegate void OnPlayerDead();
         public static event OnPlayerDead PlayerDead;
@@ -31,7 +35,7 @@ namespace Scenes.Player
         {
             _gameObject = gameObject;
             _rigidBody = gameObject.GetComponent<Rigidbody2D>();
-            coinManagerControlller = coinManager as ICoinController;
+            _coinManagerController = coinManager as ICoinController;
             _transform = transform;
             _view = _gameObject.GetComponentInChildren<IPlayerView>();
             _bulletManager = _gameObject.GetComponent<BulletManager.BulletManager>();
@@ -44,28 +48,30 @@ namespace Scenes.Player
         {
             _view.SetHpText(_model.Hp);
         }
-
-        private void Update()
-        {
-            Move();
-        }
+        
 
         public void Move()
         {
-            if (settings.activeSelf || _isPlayerDead) return;
+            StartCoroutine(MoveCoroutine());
+        }
+        private IEnumerator MoveCoroutine()
+        {
+            while(!settings.activeSelf || !_isPlayerDead){
+                if (Input.touchCount > 0)
+                {
+                    var targetWorldPosition = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+                    _targetPosition = new Vector3(targetWorldPosition.x, 0, 0);
+                }
 
-            if (Input.touchCount > 0)
-            {
-                var targetWorldPosition = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
-                _targetPosition = new Vector3(targetWorldPosition.x, 0, 0);
-            }
+                Vector3 direction = (_targetPosition - _transform.position);
+                _rigidBody.velocity = direction * _model.Speed;
 
-            Vector3 direction = (_targetPosition - _transform.position);
-            _rigidBody.velocity = direction * _model.Speed;
+                if (Vector3.Distance(_transform.position, _targetPosition) < 0.1f)
+                {
+                    _rigidBody.velocity = Vector3.zero;
+                }
 
-            if (Vector3.Distance(_transform.position, _targetPosition) < 0.1f)
-            {
-                _rigidBody.velocity = Vector3.zero;
+                yield return new WaitForSeconds(Time.deltaTime);
             }
         }
 
@@ -101,7 +107,7 @@ namespace Scenes.Player
 
         private void RevivePlayer()
         {
-            if(!coinManagerControlller.PayMoney(100)) return;
+            if(!_coinManagerController.PayMoney(100)) return;
             PlayerRevive?.Invoke();
             _model.Hp = _model.MaxHp;
             _isPlayerDead = false;
@@ -139,6 +145,11 @@ namespace Scenes.Player
         public int GetDamage()
         {
             return (int)_model.Damage;
+        }
+
+        private void OnEnable()
+        {
+            targetTouch.onClick.AddListener(Move);
         }
     }
 }
