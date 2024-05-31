@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Scenes.Player;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -20,6 +21,7 @@ namespace Scenes.BlockSpawner.Block
 
         private AudioSource _audioSource;
         private readonly Color[] _blockColors = new[] { Color.green, Color.cyan, Color.blue, Color.magenta, Color.red, };
+        private bool _isPlayerAlive;
 
         private void Awake()
         {
@@ -83,6 +85,19 @@ namespace Scenes.BlockSpawner.Block
             _view.SetBlockColor(_blockColors[tier - 1]);
             _model.Reset(tier);
             _view.SetHpText(_model.Hp);
+        }
+        private void OnEnable()
+        {
+            PlayerController.PlayerDead += OnPlayerDead;
+        }
+        private void OnDisable()
+        {
+            PlayerController.PlayerDead -= OnPlayerDead;
+        }
+
+        private void OnPlayerDead()
+        {
+            StartCoroutine(DestroyBlock());
         }
     }
 }

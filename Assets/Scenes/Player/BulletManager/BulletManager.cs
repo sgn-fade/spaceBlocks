@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Scenes.Player.BulletManager.bullet;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace Scenes.Player.BulletManager
 
         private IPlayerController _playerController;
         private float _shootRate;
+        private bool _isPlayerAlive = true;
 
         private void Awake()
         {
@@ -26,7 +28,7 @@ namespace Scenes.Player.BulletManager
         }
         private IEnumerator Shoot()
         {
-            while (true)
+            while (_isPlayerAlive)
             {
                 StartCoroutine(Release(Get()));
                 yield return new WaitForSeconds(_shootRate);
@@ -53,6 +55,29 @@ namespace Scenes.Player.BulletManager
         public void SetShootRate(double dataShootRate)
         {
             _shootRate = (float)dataShootRate;
+        }
+
+        private void OnEnable()
+        {
+            PlayerController.PlayerDead += OnPlayerDead;
+            PlayerController.PlayerRevive += OnPlayerRevive;
+        }
+
+        private void OnPlayerRevive()
+        {
+            _isPlayerAlive = true;
+            StartCoroutine(Shoot());
+        }
+
+        private void OnDisable()
+        {
+            PlayerController.PlayerDead -= OnPlayerDead;
+            PlayerController.PlayerRevive -= OnPlayerRevive;
+        }
+
+        private void OnPlayerDead()
+        {
+            _isPlayerAlive = false;
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using Scenes.BlockSpawner.Block;
+using Scenes.Player;
 using UnityEngine;
 
 namespace Scenes.BlockSpawner
@@ -14,7 +15,7 @@ namespace Scenes.BlockSpawner
         private float _gridSizeY;
 
         private float _difficulty = 1;
-        private bool _isGameActive = true;
+        private bool _isPlayerAlive = true;
 
         private const int GridSize = 7;
         private void Awake()
@@ -27,13 +28,12 @@ namespace Scenes.BlockSpawner
 
         private void Start()
         {
-            StartCoroutine(SpawnBlock());
-            StartCoroutine(DifficultyCap());
+            StartSpawn();
         }
 
         private IEnumerator DifficultyCap()
         {
-            while (_isGameActive)
+            while (_isPlayerAlive)
             {
                 _difficulty += 0.5f;
                 yield return new WaitForSeconds(10);
@@ -42,21 +42,13 @@ namespace Scenes.BlockSpawner
 
         private IEnumerator SpawnBlock()
         {
-            while (_isGameActive)
+            while (_isPlayerAlive)
             {
                 SpawnBlockLine(1);
                 yield return new WaitForSeconds(5f);
             }
         }
 
-        public void OffGame()
-        {
-            _isGameActive = false;
-        }
-        public void OnGame()
-        {
-            _isGameActive = true;
-        }
 
         private void SpawnBlockLine(int number)
         {
@@ -79,9 +71,35 @@ namespace Scenes.BlockSpawner
         }
         private IEnumerator Release(BlockController bullet)
         {
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(10);
             _blockPool.Release(bullet);
         }
+        private void OnEnable()
+        {
+            PlayerController.PlayerDead += OnPlayerDead;
+            PlayerController.PlayerRevive += OnPlayerRevive;
+        }
 
+        private void OnPlayerRevive()
+        {
+            _isPlayerAlive = true;
+            StartSpawn();
+        }
+
+        private void StartSpawn()
+        {
+            StartCoroutine(SpawnBlock());
+            StartCoroutine(DifficultyCap());
+        }
+        private void OnDisable()
+        {
+            PlayerController.PlayerDead -= OnPlayerDead;
+            PlayerController.PlayerRevive -= OnPlayerRevive;
+        }
+
+        private void OnPlayerDead()
+        {
+            _isPlayerAlive = false;
+        }
     }
 }

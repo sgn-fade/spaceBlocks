@@ -1,5 +1,6 @@
 using System.Collections;
 using Scenes.BlockSpawner.Block;
+using Scenes.CoinManager;
 using UnityEngine;
 
 namespace Scenes.Player
@@ -8,6 +9,8 @@ namespace Scenes.Player
     {
         private Camera _camera;
         [SerializeField] private GameObject settings;
+        [SerializeField] private MonoBehaviour coinManager;
+
         private IPlayerModel _model;
         private IPlayerView _view;
         private BulletManager.BulletManager _bulletManager;
@@ -18,15 +21,17 @@ namespace Scenes.Player
         private Rigidbody2D _rigidBody;
 
         private bool _isPlayerDead;
+        private ICoinController coinManagerControlller;
 
         public delegate void OnPlayerDead();
         public static event OnPlayerDead PlayerDead;
         public delegate void OnPlayerRevive();
-        public static event OnPlayerDead PlayerRevive;
+        public static event OnPlayerRevive PlayerRevive;
         private void Awake()
         {
             _gameObject = gameObject;
             _rigidBody = gameObject.GetComponent<Rigidbody2D>();
+            coinManagerControlller = coinManager as ICoinController;
             _transform = transform;
             _view = _gameObject.GetComponentInChildren<IPlayerView>();
             _bulletManager = _gameObject.GetComponent<BulletManager.BulletManager>();
@@ -96,6 +101,7 @@ namespace Scenes.Player
 
         private void RevivePlayer()
         {
+            if(!coinManagerControlller.PayMoney(100)) return;
             PlayerRevive?.Invoke();
             _model.Hp = _model.MaxHp;
             _isPlayerDead = false;
@@ -108,6 +114,8 @@ namespace Scenes.Player
         }
         private void PlayerDeath()
         {
+            _transform.position = new Vector3(0, -4.4f, 0);
+            _rigidBody.velocity = Vector3.zero;
             StartCoroutine(AutoRevive());
             PlayerDead?.Invoke();
             _isPlayerDead = true;
