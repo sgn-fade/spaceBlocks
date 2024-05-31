@@ -48,7 +48,7 @@ namespace Scenes.BlockSpawner.Block
             if (_model.Hp <= 0) return;
             UpdateHp(_model.Hp -value);
             _view.SetHpText(_model.Hp);
-            _audioSource.Play();
+            PlayHitSound();
             if (_model.Hp > 0) return;
 
             OnEnemyKilled?.Invoke(_model.Cost);
@@ -56,11 +56,16 @@ namespace Scenes.BlockSpawner.Block
 
         }
 
+        private void PlayHitSound()
+        {
+            if(Settings.IsAudioEnabled()) _audioSource.Play();
+
+        }
+
         private IEnumerator DestroyBlock()
         {
             _view.DestroyBlock();
-            if(Settings.IsAudioEnabled()) _audioSource.Play();
-
+            PlayHitSound();
             yield return new WaitForSeconds(_audioSource.clip.length);
             _gameObject.SetActive(false);
         }

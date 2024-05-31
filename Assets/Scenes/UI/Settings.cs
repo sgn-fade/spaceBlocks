@@ -35,8 +35,8 @@ namespace Scenes.UI
         }
 
         public static bool IsAudioEnabled() => _isAudioEnabled;
-        
-        private void OnToggleAudio(bool value)
+
+        private static void OnToggleAudio(bool value)
         {
             _isAudioEnabled = value;
         }
