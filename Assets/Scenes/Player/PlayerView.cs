@@ -9,6 +9,7 @@ namespace Scenes.Player
     {
         [SerializeField] private Text text;
         [SerializeField] private GameObject costButton;
+        [SerializeField] private GameObject ConfirmPanel;
         private float _remainingTime;
 
         public void SetHpText(int value)
@@ -47,6 +48,19 @@ namespace Scenes.Player
             }
         }
 
+        public void OnReviveButtonPressed()
+        {
+            ConfirmPanel.SetActive(true);
+        }
+        public void OnNoConfirmPressed()
+        {
+            ConfirmPanel.SetActive(false);
+        }
+        public void OnYesConfirmPressed()
+        {
+            ConfirmPanel.SetActive(false);
+            _remainingTime = 0;
+        }
 
     }
 }

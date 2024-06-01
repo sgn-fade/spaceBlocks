@@ -70,7 +70,7 @@ namespace Scenes.Player
                     if (targetWorldPosition.y > 3) break;
                     _targetPosition = new Vector3(targetWorldPosition.x, 0, 0);
                 }
-                
+
                 Vector3 direction = (_targetPosition - _transform.position);
                 _rigidBody.velocity = direction * _model.Speed;
 
@@ -124,10 +124,6 @@ namespace Scenes.Player
             _view.SetHpText(_model.Hp);
         }
 
-        public void OnReviveButtonPressed()
-        {
-            RevivePlayer();
-        }
 
         private void PlayerDeath()
         {
@@ -149,7 +145,6 @@ namespace Scenes.Player
         public void UpgradeDamage()
         {
             _model.Damage++;
-            Debug.Log(_model.Damage);
         }
 
         public int GetDamage()
@@ -165,6 +160,12 @@ namespace Scenes.Player
         private void OnDisable()
         {
             targetTouch.onClick.RemoveListener(Move);
+        }
+
+
+        public void OnYesConfirmPressed()
+        {
+            RevivePlayer();
         }
     }
 }
