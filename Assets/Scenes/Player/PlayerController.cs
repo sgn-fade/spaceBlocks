@@ -56,8 +56,7 @@ namespace Scenes.Player
 
         public void Move()
         {
-            var targetWorldPosition = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
-            _targetPosition = new Vector3(targetWorldPosition.x, 0, 0);
+
             StartCoroutine(MoveCoroutine());
         }
 
@@ -65,6 +64,13 @@ namespace Scenes.Player
         {
             while (!settings.activeSelf || !_isPlayerDead)
             {
+                if (Input.touchCount > 0)
+                {
+                    var targetWorldPosition = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+                    if (targetWorldPosition.y > 3) break;
+                    _targetPosition = new Vector3(targetWorldPosition.x, 0, 0);
+                }
+                
                 Vector3 direction = (_targetPosition - _transform.position);
                 _rigidBody.velocity = direction * _model.Speed;
 
