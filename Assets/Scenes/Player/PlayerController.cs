@@ -28,9 +28,13 @@ namespace Scenes.Player
         private bool _positionTargeted;
 
         public delegate void OnPlayerDead();
+
         public static event OnPlayerDead PlayerDead;
+
         public delegate void OnPlayerRevive();
+
         public static event OnPlayerRevive PlayerRevive;
+
         private void Awake()
         {
             _gameObject = gameObject;
@@ -48,21 +52,19 @@ namespace Scenes.Player
         {
             _view.SetHpText(_model.Hp);
         }
-        
+
 
         public void Move()
         {
+            var targetWorldPosition = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+            _targetPosition = new Vector3(targetWorldPosition.x, 0, 0);
             StartCoroutine(MoveCoroutine());
         }
+
         private IEnumerator MoveCoroutine()
         {
-            while(!settings.activeSelf || !_isPlayerDead){
-                if (Input.touchCount > 0)
-                {
-                    var targetWorldPosition = _camera.ScreenToWorldPoint(Input.GetTouch(0).position);
-                    _targetPosition = new Vector3(targetWorldPosition.x, 0, 0);
-                }
-
+            while (!settings.activeSelf || !_isPlayerDead)
+            {
                 Vector3 direction = (_targetPosition - _transform.position);
                 _rigidBody.velocity = direction * _model.Speed;
 
@@ -97,8 +99,10 @@ namespace Scenes.Player
             {
                 PlayerDeath();
             }
+
             _view.SetHpText(_model.Hp);
         }
+
         private IEnumerator AutoRevive()
         {
             yield return new WaitForSeconds(300);
@@ -107,7 +111,7 @@ namespace Scenes.Player
 
         private void RevivePlayer()
         {
-            if(!_coinManagerController.PayMoney(100)) return;
+            if (!_coinManagerController.PayMoney(100)) return;
             PlayerRevive?.Invoke();
             _model.Hp = _model.MaxHp;
             _isPlayerDead = false;
@@ -118,6 +122,7 @@ namespace Scenes.Player
         {
             RevivePlayer();
         }
+
         private void PlayerDeath()
         {
             _transform.position = new Vector3(0, -4.4f, 0);
@@ -126,7 +131,6 @@ namespace Scenes.Player
             PlayerDead?.Invoke();
             _isPlayerDead = true;
             _view.StartDeathTimer();
-
         }
 
         public void UpgradeHp()
@@ -150,6 +154,11 @@ namespace Scenes.Player
         private void OnEnable()
         {
             targetTouch.onClick.AddListener(Move);
+        }
+
+        private void OnDisable()
+        {
+            targetTouch.onClick.RemoveListener(Move);
         }
     }
 }

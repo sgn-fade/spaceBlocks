@@ -10,7 +10,7 @@ namespace Scenes.UI
 
         [SerializeField] private Toggle musicToggle;
         [SerializeField] private Toggle audioToggle;
-        private static bool _isAudioEnabled = true;
+        private static bool _isAudioEnabled;
 
         public void OnSettingsPressed()
         {
