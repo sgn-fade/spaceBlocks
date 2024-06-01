@@ -17,6 +17,7 @@ namespace Scenes.BlockSpawner.Block
         private Transform _transform;
         private GameObject _gameObject;
         [SerializeField] private GameObject hpObject;
+        private BoxCollider2D collision;
         private IBlockModel _model;
         private IBlockView _view;
 
@@ -27,6 +28,7 @@ namespace Scenes.BlockSpawner.Block
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
+            collision = GetComponent<BoxCollider2D>();
             _transform = transform;
             _gameObject = gameObject;
             _view = gameObject.GetComponent<BlockView>();
@@ -50,7 +52,7 @@ namespace Scenes.BlockSpawner.Block
             _view.SetHpText(_model.Hp);
             PlayHitSound();
             if (_model.Hp > 0) return;
-
+            collision.enabled = false;
             OnEnemyKilled?.Invoke(_model.Cost);
             StartCoroutine(DestroyBlock());
 
@@ -88,6 +90,7 @@ namespace Scenes.BlockSpawner.Block
 
         public void ResetBlock()
         {
+            collision.enabled = true;
             var tier = Random.Range(1, 5);
             _view.SetBlockColor(_blockColors[tier - 1]);
             _model.Reset(tier);
