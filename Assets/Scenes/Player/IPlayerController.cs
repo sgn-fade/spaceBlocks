@@ -8,6 +8,7 @@ namespace Scenes.Player
         void UpdateHp(int value);
         void UpgradeHp();
         void UpgradeDamage();
+        void UpgradeShootRate();
         int GetDamage();
     }
 }

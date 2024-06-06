@@ -22,7 +22,7 @@ namespace Scenes.BlockSpawner.Block
         public void Reset(int tier)
         {
             Hp = (int)(tier * DifficultMultiplier);
-            Cost = (int)(Hp * DifficultMultiplier);
+            Cost = (int)(Hp * DifficultMultiplier * 0.5);
         }
     }
 }

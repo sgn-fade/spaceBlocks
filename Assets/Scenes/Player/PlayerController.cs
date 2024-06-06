@@ -147,6 +147,11 @@ namespace Scenes.Player
             _model.Damage++;
         }
 
+        public void UpgradeShootRate()
+        {
+            SetShootRate(++_model.ShootRate);
+        }
+
         public int GetDamage()
         {
             return (int)_model.Damage;

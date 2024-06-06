@@ -31,7 +31,7 @@ namespace Scenes.Player.BulletManager
             while (_isPlayerAlive)
             {
                 StartCoroutine(Release(Get()));
-                yield return new WaitForSeconds(_shootRate);
+                yield return new WaitForSeconds((float)(1 - 0.02 * _shootRate));
             }
         }
 
