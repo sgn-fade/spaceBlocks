@@ -19,6 +19,7 @@ namespace Scenes.UI
         public void OnButtonPressed()
         {
             chestUi.SetActive(true);
+            Time.timeScale = 0f;
         }
 
         public void OnChestOpened()
@@ -35,6 +36,7 @@ namespace Scenes.UI
 
         public void ResetUi()
         {
+            Time.timeScale = 1f;
             notEnoughText.gameObject.SetActive(false);
             chest.GetComponent<Animator>().SetBool(ButtonPressed, false);
             chest.GetComponent<Animator>().SetBool(Reset, true);

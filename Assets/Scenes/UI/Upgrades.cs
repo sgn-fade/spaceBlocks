@@ -41,10 +41,12 @@ namespace Scenes.UI
         public void OnUpgradesPressed()
         {
             gameObject.SetActive(true);
+            Time.timeScale = 0f;
         }
         public void OnExitPressed()
         {
             gameObject.SetActive(false);
+            Time.timeScale = 1f;
         }
 
         public void OnDamageUpPressed()

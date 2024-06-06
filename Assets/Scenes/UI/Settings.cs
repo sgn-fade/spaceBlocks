@@ -14,11 +14,13 @@ namespace Scenes.UI
 
         public void OnSettingsPressed()
         {
+            Time.timeScale = 0f;
             gameObject.SetActive(true);
         }
 
         public void OnExitPressed()
         {
+            Time.timeScale = 1f;
             gameObject.SetActive(false);
         }
 
