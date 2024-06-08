@@ -16,7 +16,7 @@ public class ChestCoinManager : MonoBehaviour
         coinText.gameObject.SetActive(true);
         coinValue = Random.Range(1, 5);
 
-        coinValue = coinValue <= 4 ? Random.Range(1, 30) : Random.Range(30, 100);
+        coinValue = coinValue <= 3 ? Random.Range(1, 12) : Random.Range(12, 100);
         coinText.text = coinValue.ToString();
     }
 

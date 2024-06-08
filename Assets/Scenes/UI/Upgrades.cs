@@ -36,6 +36,7 @@ namespace Scenes.UI
         {
             damageCostLabel.text = UpgradeCost(_damageLevel).ToString();
             hpCostLabel.text = UpgradeCost(_hpLevel).ToString();
+            shootRateCostLabel.text = UpgradeCost(_shootRateLevel).ToString();
         }
 
         public void OnUpgradesPressed()
@@ -85,7 +86,7 @@ namespace Scenes.UI
 
         private int UpgradeCost(int level)
         {
-            return level * 2 + Random.Range(1, 5);
+            return level * 4 + Random.Range(1, 5);
         }
     }
 }
